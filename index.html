@@ -1,0 +1,26 @@
+<html>
+  <body>
+    <input id="user_id" placeholder="user_id">
+    <input id="meeting_id" placeholder="meeting_id">
+    <input id="perm" placeholder="perm">
+    <div id="output"></div>
+    <script src="./index.js"></script>
+    <script>
+      const userIDElement = document.getElementById("user_id");
+      const meetingIDElement = document.getElementById("meeting_id");
+      const permIDElement = document.getElementById("perm");
+      const output = document.getElementById("output");
+
+      load_wasm("./module.wasm", "./db.json").then((hasPerm) => {
+        function eventFn() {
+          output.textContent = hasPerm(userIDElement.value, meetingIDElement.value, permIDElement.value);
+        }
+
+        userIDElement.addEventListener('input', eventFn);
+        meetingIDElement.addEventListener('input', eventFn);
+        permIDElement.addEventListener('input', eventFn);
+        eventFn();
+      });      
+    </script>
+  </body>
+</html>
