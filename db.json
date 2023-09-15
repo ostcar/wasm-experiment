@@ -1,0 +1,8 @@
+{
+    "user/5/meeting_user_ids": [1],
+    "meeting_user/1/meeting_id": 1,
+    "meeting_user/1/group_ids": [3],
+    "group/3/permissions": [
+        "agenda.can_see"
+    ]
+}
